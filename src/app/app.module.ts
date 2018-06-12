@@ -8,8 +8,10 @@ import { WorkbenchComponent } from './workbench/workbench.component';
 import { UploadComponent } from './upload/upload.component';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 import { GuestHeaderComponent } from './guest-header/guest-header.component';
 import { GuestHomeComponent } from './guest-home/guest-home.component';
+
 
 @NgModule({
   declarations: [
@@ -19,6 +21,7 @@ import { GuestHomeComponent } from './guest-home/guest-home.component';
     LoginComponent,
     HeaderComponent,
     HomeComponent,
+    FooterComponent,
     GuestHeaderComponent,
     GuestHomeComponent
   ],

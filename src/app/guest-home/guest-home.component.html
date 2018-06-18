@@ -1,14 +1,35 @@
-<app-guest-header></app-guest-header>
-  <div class="container-fluid"></div>
-  <div class="wrap">
-    <div class="search">
-    <input type="text" class="searchTerm" placeholder="What are you looking for?">
-    <button type="submit" class="searchButton">Search
-    </button>
-    </div>
-    </div>
-    <div class="container">
-    <video width="500" controls>
-      <source src="{{video1}}" type="video/mp4">
-      </video>
+<app-header></app-header>
+<div class="container-fluid"></div>
+<div class="wrap">
+  <div class="search">
+  <input type="text" class="searchTerm" placeholder="What are you looking for?">
+  <button type="submit" class="searchButton">Search
+  </button>
+  <div>
+      <a href="/create" class="btn btn-info btn-lg">
+          <span class="glyphicon glyphicon-plus-sign"></span> Add video
+        </a>
       </div>
+  </div>
+  </div>
+  
+
+  <div class="container">
+      <ng-container *ngFor="let video of data">
+      <div class="row">
+          <div class="col-sm-6" >
+            
+<iframe width="420" height="300" src="https://www.youtube.com/embed/7nxBV1rD3ng">
+    </iframe>
+    </div>
+   
+
+        <div class="col-sm-6" >
+    <h1><strong>CHANNEL:</strong>{{video.channel_name}}</h1>
+    <h1><strong>ShortDesc:</strong>{{video.shortDesc}}</h1>
+    <h1><strong>Tags:</strong>{{video.category}}</h1>
+    <h1><strong>Genre:</strong>{{video.genre}}</h1>
+    </div>
+  </div>
+  </ng-container>
+    </div>

@@ -11,6 +11,14 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { GuestHeaderComponent } from './guest-header/guest-header.component';
 import { GuestHomeComponent } from './guest-home/guest-home.component';
+import { CreateComponent } from 'src/app/create/create.component';
+
+import {HttpClientModule} from '@angular/common/http';
+import { AuthorizationInterceptor } from './auth/authorization.interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+
+import { CookieService } from 'angular2-cookie/services/cookies.service';
+
 
 
 @NgModule({
@@ -23,16 +31,23 @@ import { GuestHomeComponent } from './guest-home/guest-home.component';
     HomeComponent,
     FooterComponent,
     GuestHeaderComponent,
-    GuestHomeComponent
+    GuestHomeComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule
 
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [CookieService,{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthorizationInterceptor,
+    multi: true
+  }],
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }

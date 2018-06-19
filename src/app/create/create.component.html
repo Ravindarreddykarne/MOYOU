@@ -6,41 +6,49 @@
             <div class="col-sm-6 mobile-pull">
               <article role="login">
                 <h3 class="text-center"><i class="fa fa-youtube-square" style="font-size:48px;color:red"></i> VIDEO</h3>
-                <form class="signup" action="index.html" method="post">
+                <form class="newvideo" action="index.html" method="post">
                   <div class="form-group">
-                    <input type="text" class="form-control" placeholder="URL Name" name="username" [(ngModel)]="newvideo.videourl" #username="ngModel">
+                    <input type="text" class="form-control" placeholder="URL Name" name="urlname">
                   </div>
                   <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Short description" [(ngModel)]="newvideo.shortdescription" #username="ngModel">
+                    <input type="email" class="form-control" placeholder="Short description">
                   </div>
                   <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Long description" [(ngModel)]="newvideo.longdescription" #username="ngModel">
+                    <input type="text" class="form-control" placeholder="Long description">
                   </div>
                   <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Long description" [(ngModel)]="newvideo.contenttype" #username="ngModel">
+                    <input type="text" class="form-control" placeholder="Long description">
                   </div>
                   <div class="form-group">
                     <label for="sel1">Select Quality :</label>
-                    <select class="form-control" id="sel1">
-                     
+                    <select class="form-control" id="sel1" >
+                        <option *ngFor="let item of newgenrs" [ngValue]="item">{{item.shortName}}</option>
                     </select>
                   </div>
                   <div class="form-group">
                     <!-- <label for="sel1">Select Quality :</label> -->
                     <select class="form-control" id="sel1">
-                      
+                        <option *ngFor="let item of subgenrs" [ngValue]="item">{{item.shortName}}</option>
                     </select>
                   </div>
                   <div class="form-group">
                     <!-- <label for="sel1">Select Quality :</label> -->
                     <select class="form-control" id="sel1">
-                     
+                        <option *ngFor="let item of providers" [ngValue]="item">{{item.provider}}</option>
                     </select>
                    </div>
-                <!-- <div class="form-group">
-                  <label for="comment">Comment:</label>
-                <textarea class="form-control"   rows="5" id="comment"></textarea>
-                 </div> --> 
+                   <div class="form-group">
+                      <!-- <label for="sel1">Select Quality :</label> -->
+                      <select class="form-control" id="sel1">
+                          <option *ngFor="let item of languages" [ngValue]="item">{{item.language}}</option>
+                      </select>
+                     </div>
+                     <div class="form-group">
+                        <!-- <label for="sel1">Select Quality :</label> -->
+                        <select class="form-control" id="sel1">
+                            <option *ngFor="let item of categories" [ngValue]="item">{{item.shortName}}</option>
+                        </select>
+                       </div>
                   <div class="form-group">
                     <div class="checkbox">
                       <label>
@@ -49,7 +57,7 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <input type="submit" class="btn btn-success btn-block"  value="save">
+                    <input type="submit" class="btn btn-success btn-block"  value="save" (click)="createVideo(newvideo)">
                   </div>
                 </form>
 

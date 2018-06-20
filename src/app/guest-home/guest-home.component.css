@@ -1,7 +1,7 @@
 .container-fluid{
     background-color: #022542;
     width: 100%;
-    height: 400px;
+    height: 300px;
     }
     
 .search {
@@ -17,6 +17,7 @@
     outline: none;
     color: #131111;
     margin-left: -129px;
+    margin-top: -20%;
     }
     
     .searchTerm:focus{
@@ -35,6 +36,7 @@
     border-radius: 5px;
     cursor: pointer;
     font-size: 20px;
+    margin-top: -20%;
     }
     
     
@@ -60,5 +62,5 @@
     }
     a.btn.btn-info.btn-lg{
         margin-left: 509px;
-         margin-top: -62px;
+         margin-top: -35%;
     }

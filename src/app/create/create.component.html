@@ -1,70 +1,73 @@
 
       <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="home">
-     
-
-            <div class="col-sm-6 mobile-pull">
-              <article role="login">
-                <h3 class="text-center"><i class="fa fa-youtube-square" style="font-size:48px;color:red"></i> VIDEO</h3>
-                <form class="newvideo" action="index.html" method="post">
-                  <div class="form-group">
-                    <input type="text" class="form-control" placeholder="URL Name" name="urlname">
-                  </div>
-                  <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Short description">
-                  </div>
-                  <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Long description">
-                  </div>
-                  <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Long description">
-                  </div>
-                  <div class="form-group">
-                    <label for="sel1">Select Quality :</label>
-                    <select class="form-control" id="sel1" >
-                        <option *ngFor="let item of newgenrs" [ngValue]="item">{{item.shortName}}</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <!-- <label for="sel1">Select Quality :</label> -->
-                    <select class="form-control" id="sel1">
-                        <option *ngFor="let item of subgenrs" [ngValue]="item">{{item.shortName}}</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <!-- <label for="sel1">Select Quality :</label> -->
-                    <select class="form-control" id="sel1">
-                        <option *ngFor="let item of providers" [ngValue]="item">{{item.provider}}</option>
-                    </select>
-                   </div>
-                   <div class="form-group">
+          <div role="tabpanel" class="tab-pane active" id="home">
+       
+  
+              <div class="col-sm-6 mobile-pull">
+                <article role="login">
+                  <h3 class="text-center"><i class="fa fa-youtube-square" style="font-size:48px;color:red"></i> VIDEO</h3>
+                  <form class="newvideo" action="index.html" method="post">
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="URL Name" name="urlname" [(ngModel)]="user.videoURL" #urlname="ngModel" required autofocus>
+                    </div>
+                    <div class="form-group">
+                      <input type="email" class="form-control" placeholder="shortDescription" name="shortDescription" [(ngModel)]="user.shortDescription" #shortDescription="ngModel">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Long description" name="Tags" [(ngModel)]="user.tags" #Tags="ngModel">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Status" name="status" [(ngModel)]="user.status" #status="ngModel">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Content Type" name="contentType" [(ngModel)]="user.contentType" #contentType="ngModel">
+                    </div>
+                    <div class="form-group">
+                      <label for="sel1">Select Quality :</label>
+                      <select class="form-control" id="sel1" name="genre" [(ngModel)]="user.genreID" #genre="ngModel">
+                          <option *ngFor="let item of newgenrs" [ngValue]="item.id" >{{item.shortName}}</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
                       <!-- <label for="sel1">Select Quality :</label> -->
-                      <select class="form-control" id="sel1">
-                          <option *ngFor="let item of languages" [ngValue]="item">{{item.language}}</option>
+                      <select class="form-control" id="sel1" name="subgenre" [(ngModel)]="user.subGenreID" #subgenre="ngModel">
+                          <option *ngFor="let item of subgenrs" [ngValue]="item.id" >{{item.shortName}}</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <!-- <label for="sel1">Select Quality :</label> -->
+                      <select class="form-control" id="sel1" name="provider" [(ngModel)]="user.providerId" #provider="ngModel">
+                          <option *ngFor="let item of providers" [ngValue]="item.id">{{item.provider}}</option>
                       </select>
                      </div>
                      <div class="form-group">
                         <!-- <label for="sel1">Select Quality :</label> -->
-                        <select class="form-control" id="sel1">
-                            <option *ngFor="let item of categories" [ngValue]="item">{{item.shortName}}</option>
+                        <select class="form-control" id="sel1" name="language" [(ngModel)]="user.languageID" #language="ngModel">
+                            <option *ngFor="let item of languages" [ngValue]="item.id">{{item.language}}</option>
                         </select>
                        </div>
-                  <div class="form-group">
-                    <div class="checkbox">
-                      <label>
-                        <input type="checkbox"> Please accept the terms and conditions to upload the video.
-                      </label>
+                       <div class="form-group">
+                          <!-- <label for="sel1">Select Quality :</label> -->
+                          <select class="form-control" id="sel1" name="category" [(ngModel)]="user.categoryID" #category="ngModel">
+                              <option *ngFor="let item of categories" [ngValue]="item.id">{{item.shortName}}</option>
+                          </select>
+                         </div>
+                    <div class="form-group">
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox"> Please accept the terms and conditions to upload the video.
+                        </label>
+                      </div>
                     </div>
-                  </div>
-                  <div class="form-group">
-                    <input type="submit" class="btn btn-success btn-block"  value="save" (click)="createVideo(newvideo)">
-                  </div>
-                </form>
-
-            
-
-              </article>
-            </div>
-
-</div>
-</div>
+                    <div class="form-group">
+                      <input type="submit" class="btn btn-success btn-block"  value="save" (click)="createVideo(newvideo)">
+                    </div>
+                  </form>
+  
+              
+  
+                </article>
+              </div>
+  
+  </div>
+  </div>

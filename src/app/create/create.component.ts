@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CreatevideoService } from 'src/app/services/craetevideo/createvideo.service';
 import { FormsModule, ReactiveFormsModule , FormGroup ,NgForm} from '@angular/forms';
+import { Router, CanActivate } from '@angular/router';
 
 @Component({
   selector: 'app-create',
@@ -13,7 +14,8 @@ export class CreateComponent implements OnInit {
   providers:any={};
   languages:any={};
   categories:any={};
-  constructor(private createvideoService: CreatevideoService) { }
+  user:any={};
+  constructor(private createvideoService: CreatevideoService,private router: Router) { }
 
   ngOnInit() {
     this.createvideoService.getData().subscribe(data=>{
@@ -43,5 +45,13 @@ export class CreateComponent implements OnInit {
     });
   }
   createVideo(loginForm: NgForm): void {
+    console.log(this.user);
+    this.createvideoService.NewVideo(this.user).subscribe( (data: any) => {
+      console.log(data);
+      this.user = data;
+      if (data.message ===' success') {
+        this.router.navigate(['guestuser']);
+      }
+    });
   }
 }

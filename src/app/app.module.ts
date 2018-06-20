@@ -18,7 +18,8 @@ import { AuthorizationInterceptor } from './auth/authorization.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { CookieService } from 'angular2-cookie/services/cookies.service';
-
+import { YoutubePlayerModule } from 'ng2-youtube-player';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 @NgModule({
@@ -39,7 +40,10 @@ import { CookieService } from 'angular2-cookie/services/cookies.service';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    YoutubePlayerModule,
+    Ng2SearchPipeModule
+    
 
   ],
   providers: [CookieService,{
